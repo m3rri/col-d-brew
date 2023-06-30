@@ -15,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor @AllArgsConstructor
 public class Notice extends BaseEntity {
     @Id
-    private Integer id;
+    private Long id;
     @Column(length = 99)
     private String title;
     @Column(length = 300, nullable = false)

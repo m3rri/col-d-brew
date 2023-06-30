@@ -16,11 +16,13 @@ import lombok.*;
 @AllArgsConstructor
 public class Container extends BaseEntity {
     @Id
-    private Integer id;
-    private Integer no;
+    private Long id;
+    @Column(unique = true)
+    private String name;
     @Column(name = "color_code")
     private String colorCode;
     @Column(name = "volume_code")
     private String volumeCode;
-    private BooleanChar expire;
+    @Column(name = "in_use")
+    private BooleanChar inUse;
 }

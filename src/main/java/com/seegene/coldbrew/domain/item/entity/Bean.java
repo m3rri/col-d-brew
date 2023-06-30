@@ -15,7 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Bean extends BaseEntity {
     @Id
-    private Integer id;
+    private Long id;
     @Column(length = 200, nullable = false)
     private String country;
     @Column(length = 200)

@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class User {
     @Id
-    private Integer id;
+    private Long id;
     @Column(length = 200, nullable = false, columnDefinition = "email")
     private String email;
     @Column(length = 100, nullable = false)

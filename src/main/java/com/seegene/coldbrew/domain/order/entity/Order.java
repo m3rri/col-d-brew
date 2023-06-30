@@ -1,10 +1,9 @@
 package com.seegene.coldbrew.domain.order.entity;
 
 import com.seegene.coldbrew.domain.common.entity.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.seegene.coldbrew.domain.common.entity.User;
+import com.seegene.coldbrew.domain.product.entity.ColDBrew;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -15,12 +14,14 @@ import lombok.*;
 @AllArgsConstructor
 public class Order extends BaseEntity {
     @Id
-    private Integer id;
-    @Column(name = "coldbrew_id")
-    private Integer coldbrewId;
+    private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "coldbrew_id", foreignKey = @ForeignKey(name = "FK_ORDER_COLDBREW"))
+    private ColDBrew colDBrew;
     private Integer quantity;
-    @Column(name = "user_id")
-    private Integer userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_ORDER_USER"))
+    private User user;
     @Column(name = "order_dt")
     private String orderDt;
 }

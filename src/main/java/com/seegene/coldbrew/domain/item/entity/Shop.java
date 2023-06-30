@@ -15,7 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 public class Shop extends BaseEntity {
     @Id
-    private Integer id;
+    private Long id;
     @Column(length = 100, nullable = false)
     private String name;
     @Column(length = 1000)
